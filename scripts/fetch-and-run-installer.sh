@@ -17,7 +17,7 @@
 
 set -o xtrace
 
-BASEURL="https://static.rust-lang.org/dist"
+BASEURL="https://artifactory.delphix.com/artifactory/linux-pkg/rust"
 
 function die() {
 	echo "$(basename "$0"): $*" >&2
