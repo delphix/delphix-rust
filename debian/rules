@@ -19,7 +19,7 @@
 	dh $@
 
 override_dh_install:
-	./scripts/fetch-and-run-installer.sh "1.60.0" "/usr" "debian/tmp"
+	./scripts/fetch-and-run-installer.sh "1.63.0" "/usr" "debian/tmp"
 
 	dh_install --autodest "debian/tmp/*"
 
