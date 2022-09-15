@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 10), devscripts
 Standards-Version: 4.1.2
 
 Package: delphix-rust
-Architecture: amd64
+Architecture: any
 Provides: cargo, rust-gdb, rustc
 Conflicts: cargo, rust-gdb, rustc
 Description: Rust - A programming language empowering everyone to build

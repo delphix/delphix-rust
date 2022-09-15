@@ -26,7 +26,7 @@ function die() {
 
 function usage() {
 	echo "$(basename "$0"): $*" >&2
-	echo "Usage: $(basename "$0") <version> <prefix> <destdir>"
+	echo "Usage: $(basename "$0") <version> <prefix> <destdir> <cpu>"
 	exit 2
 }
 
@@ -34,14 +34,15 @@ function cleanup() {
 	[[ -n "$TEMP_DIR" ]] && [[ -d "$TEMP_DIR" ]] && rm -rf "$TEMP_DIR"
 }
 
-[[ $# -gt 3 ]] && usage "too many arguments specified"
-[[ $# -lt 3 ]] && usage "too few arguments specified"
+[[ $# -gt 4 ]] && usage "too many arguments specified"
+[[ $# -lt 4 ]] && usage "too few arguments specified"
 
 VERSION="$1"
 PREFIX="$2"
 DESTDIR="$3"
+CPU="$4"
 
-RUST="rust-${VERSION}-x86_64-unknown-linux-gnu"
+RUST="rust-${VERSION}-${CPU}-unknown-linux-gnu"
 
 [[ -z "$VERSION" ]] && usage "version not specified."
 [[ -z "$PREFIX" ]] && usage "prefix not specified."
