@@ -21,7 +21,7 @@ DEB_HOST_GNU_CPU ?= $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
 	dh $@
 
 override_dh_install:
-	./scripts/fetch-and-run-installer.sh "1.66.0" "/usr" "debian/tmp" $(DEB_HOST_GNU_CPU)
+	./scripts/fetch-and-run-installer.sh "1.70.0" "/usr" "debian/tmp" $(DEB_HOST_GNU_CPU)
 
 	dh_install --autodest "debian/tmp/*"
 
