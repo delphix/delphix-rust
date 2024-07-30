@@ -63,12 +63,12 @@ TEMP_DIR="$(mktemp -d -t delphix-rust.XXXXXXX)"
 [[ -d "$TEMP_DIR" ]] || die "failed to create temporary directory '$TEMP_DIR'"
 pushd "$TEMP_DIR" &>/dev/null || die "'pushd $TEMP_DIR' failed"
 
-wget -nv "${BASEURL}/${RUST}.tar.gz" || die "failed to download tarfile"
-wget -nv "${BASEURL}/${RUST}.tar.gz.asc" || die "failed to download signature"
-gpg --verify "${RUST}.tar.gz.asc" "${RUST}.tar.gz" ||
+wget -nv "${BASEURL}/${RUST}.tar.xz" || die "failed to download tarfile"
+wget -nv "${BASEURL}/${RUST}.tar.xz.asc" || die "failed to download signature"
+gpg --verify "${RUST}.tar.xz.asc" "${RUST}.tar.xz" ||
 	die "failed to verify signature"
 
-tar -xvf "${RUST}.tar.gz" || die "failed to extract tarfile"
+tar -xvf "${RUST}.tar.xz" || die "failed to extract tarfile"
 "./${RUST}/install.sh" --verbose --disable-ldconfig \
 	--prefix="${PREFIX}" --destdir="$DESTDIR" ||
 	die "failed to install; 'prefix=${PREFIX}' and 'destdir=${DESTDIR}'"
