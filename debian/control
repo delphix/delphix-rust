@@ -22,7 +22,7 @@ Standards-Version: 4.1.2
 
 Package: delphix-rust
 Architecture: any
-Provides: cargo, rust-gdb, rustc
+Provides: cargo, rust-gdb, rustc (= ${binary:Version})
 Conflicts: cargo, rust-gdb, rustc
 Description: Rust - A programming language empowering everyone to build
   reliable and efficient software.
