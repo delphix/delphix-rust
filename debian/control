@@ -26,3 +26,10 @@ Provides: cargo, rust-gdb, rustc
 Conflicts: cargo, rust-gdb, rustc
 Description: Rust - A programming language empowering everyone to build
   reliable and efficient software.
+
+Package: delphix-rust-src
+Architecture: any
+Provides: rust-src
+Conflicts: rust-src
+Description: Rust - A programming language empowering everyone to build
+  reliable and efficient software.

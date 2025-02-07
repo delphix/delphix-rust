@@ -20,10 +20,19 @@ DEB_HOST_GNU_CPU ?= $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
 %:
 	dh $@
 
-override_dh_install:
+override_dh_prep:
+	dh_prep
 	./scripts/fetch-and-run-installer.sh "1.84.1" "/usr" "debian/tmp" $(DEB_HOST_GNU_CPU)
-
-	dh_install --autodest "debian/tmp/*"
+	./scripts/fetch-and-unpack-src.sh "1.84.1" "/usr/src" "debian/tmp"
 
 override_dh_strip:
-	# Skip this step; use artifacts from Rust tarball as-is.
+	# Skip this step; use artifacts from Rust tarballs as-is.
+
+override_dh_strip_nondeterminism:
+	# Skip this step; use artifacts from Rust tarballs as-is.
+
+override_dh_makeshlibs:
+	# Skip this step; use artifacts from Rust tarballs as-is.
+
+override_dh_shlibdeps:
+	# Skip this step; use artifacts from Rust tarballs as-is.
