@@ -26,3 +26,10 @@ Provides: cargo, rust-gdb, rustc (= ${binary:Version})
 Conflicts: cargo, rust-gdb, rustc
 Description: Rust - A programming language empowering everyone to build
   reliable and efficient software.
+
+Package: delphix-rust-src
+Architecture: any
+Provides: rust-src (= ${binary:Version})
+Conflicts: rust-src
+Description: Rust - A programming language empowering everyone to build
+  reliable and efficient software.
