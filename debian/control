@@ -22,14 +22,18 @@ Standards-Version: 4.1.2
 
 Package: delphix-rust
 Architecture: any
-Provides: cargo, rust-gdb, rustc
-Conflicts: cargo, rust-gdb, rustc
+Provides: cargo (= ${binary:Version}),
+          rust-gdb (= ${binary:Version}),
+          rustc (= ${binary:Version}),
+          rustfmt (= ${binary:Version}),
+          cargo-fmt (= ${binary:Version})
+Conflicts: cargo, rust-gdb, rustc, rustfmt, cargo-fmt
 Description: Rust - A programming language empowering everyone to build
   reliable and efficient software.
 
 Package: delphix-rust-src
 Architecture: any
-Provides: rust-src
+Provides: rust-src (= ${binary:Version})
 Conflicts: rust-src
 Description: Rust - A programming language empowering everyone to build
   reliable and efficient software.

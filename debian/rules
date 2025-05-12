@@ -16,14 +16,15 @@
 #
 
 DEB_HOST_GNU_CPU ?= $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
+RUSTC_VERSION := $(shell tr -d '\n' < RUSTC_VERSION)
 
 %:
 	dh $@
 
 override_dh_prep:
 	dh_prep
-	./scripts/fetch-and-run-installer.sh "1.84.1" "/usr" "debian/tmp" $(DEB_HOST_GNU_CPU)
-	./scripts/fetch-and-unpack-src.sh "1.84.1" "/usr/src" "debian/tmp"
+	./scripts/fetch-and-run-installer.sh "${RUSTC_VERSION}" "/usr" "debian/tmp" $(DEB_HOST_GNU_CPU)
+	./scripts/fetch-and-unpack-src.sh "${RUSTC_VERSION}" "/usr/src" "debian/tmp"
 
 override_dh_strip:
 	# Skip this step; use artifacts from Rust tarballs as-is.
